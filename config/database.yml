@@ -26,3 +26,9 @@ production:
   database: "<%= ENV.fetch('POSTGRES_DATABASE', 'chatwoot_production') %>"
   username: "<%= ENV.fetch('POSTGRES_USERNAME', 'chatwoot_prod') %>"
   password: "<%= ENV.fetch('POSTGRES_PASSWORD', 'chatwoot_prod') %>"
+/gems/ruby/3.2.0/gems/sidekiq-7.2.4/lib/sidekiq/component.rb:10:in `watchdog'
+sidekiq-1   | /gems/ruby/3.2.0/gems/sidekiq-7.2.4/lib/sidekiq/component.rb:19:in `block in safe_thread'
+sidekiq-1   | fail
+sidekiq-1   | {"context":"Job raised exception","job":{"retry":true,"queue":"scheduled_jobs","class":"ActiveJob::QueueAdapters::SidekiqAdapter::JobWrapper","wrapped":"Inboxes::FetchImapEmailInboxesJob","args":[{"job_class":"Inboxes::FetchImapEmailInboxesJob","job_id":"081d56a5-9d3a-4c2a-a045-ece4e1cd6d4b","provider_job_id":null,"queue_name":"scheduled_jobs","priority":null,"arguments":[],"executions":0,"exception_executions":{},"locale":"en","timezone":"UTC","enqueued_at":"2024-06-15T18:27:58Z"}],"jid":"cdedca34cea5ef70dd6af6b3","created_at":1718476078.912639,"enqueued_at":1718476140.955154,"error_message":"You tried to define an enum named \"sender_name_type\" on the model \"Inbox\", but this will generate a instance method \"friendly?\", which is already defined by another enum.","error_class":"ArgumentError","failed_at":1718476079.7424176,"retry_count":1,"retried_at":1718476107.788421}}
+sidekiq-1   | ArgumentError: You tried to define an enum named "sender_name_type" on the model "Inbox", but this will generate a instance method "friendly?", which is already defined by another enum.
+sidekiq-1   | app/models/inbox.rb:76:in `<class:Inbox>'
