@@ -3,7 +3,7 @@ FROM ruby:3.2.2-alpine3.18 AS pre-builder
 
 # ARG default to production settings
 # For development docker-compose file overrides ARGS
-ARG BUNDLE_WITHOUT="development:test"
+ARG BUNDLE_WITHOUT=""
 ENV BUNDLE_WITHOUT ${BUNDLE_WITHOUT}
 ENV BUNDLER_VERSION=2.1.2
 
@@ -76,11 +76,11 @@ RUN rm -rf /gems/ruby/3.2.0/cache/*.gem \
 FROM ruby:3.2.2-alpine3.18
 
 
-ARG BUNDLE_WITHOUT="development:test"
+ARG BUNDLE_WITHOUT=""
 ENV BUNDLE_WITHOUT ${BUNDLE_WITHOUT}
 ENV BUNDLER_VERSION=2.1.2
 
-ARG EXECJS_RUNTIME="Disabled"
+ARG EXECJS_RUNTIME="Node"
 ENV EXECJS_RUNTIME ${EXECJS_RUNTIME}
 
 ARG RAILS_SERVE_STATIC_FILES=true
