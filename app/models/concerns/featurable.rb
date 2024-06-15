@@ -69,3 +69,5 @@ module Featurable
     enable_features(*features_to_enabled)
   end
 end
+
+
